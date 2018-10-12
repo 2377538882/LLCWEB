@@ -30,31 +30,7 @@
 <div class="middle">
     <div class="container middle_container">
         <div class="middle_content">
-            <div class="middle_l" id="temlate_middle">
-                <!-- <h1><span>机构概况</span></h1> -->
-                <ul id='resultType' class="tmo_list2">
-                    <li class="ll first"><span>科研团队</span></li>
-                    <li class='ll'>
-                        <a href='../Professor.html' class='ll_ref'>
-                            <i></i>
-                            <span>教授</span>
-                        </a>
-                    </li>
-                    <li class='ll'>
-                        <a href='../Associate_professor.html' class='ll_ref' style="background:#6ad;">
-                            <i></i>
-                            <span>副教授</span>
-                        </a>
-                    </li>
-                    <li class='ll'>
-                        <a href='../Lecturer.html' class='ll_ref'>
-                            <i></i>
-                            <span>讲师</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
+            <div class="middle_l" id="temlate_middle" th:include="template/professor :: professor"></div>
             <div class="middle_r">
                 <div class="crumb">
                     <ul id="crumbs">

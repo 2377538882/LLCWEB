@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
     <!--<title>LLC实验室网站</title>-->
     <link rel="shortcut icon" href="../../../static/home/images/bitbug_favicon.ico"
-    th:href="@{/home/images/bitbug_favicon.ico}"/>
+          th:href="@{/home/images/bitbug_favicon.ico}"/>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../../../static/home/css/reset.css" rel="stylesheet" th:href="@{/home/css/reset.css}">
     <link href="../../../static/home/css/public.css" rel="stylesheet" th:href="@{/home/css/public.css}">
     <link href="../../../static/home/css/index.css" rel="stylesheet" th:href="@{/home/css/index.css}">
-   <script type="text/javascript" src="../../../static/home/js/jquery-1.12.4.min.js" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+    <script type="text/javascript" src="../../../static/home/js/jquery-1.12.4.min.js" th:src="@{/js/jquery-1.12.4.min.js}"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <meta name="description" content="jPaginate - jQuery Pagination Plugin"/>
+    <meta name="description" content="jPaginate - jQuery Pagination Plugin"/>
     <meta name="keywords" content="jquery, plugin, pagination, fancy"/>
     <title>科研团队——广东省信息物理融合系统重点实验室</title>
     <link rel="stylesheet" href="../../../static/home/css/header.css" type="text/css" th:href="@{/home/css/header.css}"/>
@@ -30,31 +30,7 @@
 <div class="middle">
     <div class="container middle_container">
         <div class="middle_content">
-            <div class="middle_l" id="temlate_middle">
-                <!-- <h1><span>机构概况</span></h1> -->
-                <ul id='resultType' class="tmo_list2">
-                    <li class="ll first"><span>科研团队</span></li>
-                    <li class='ll'>
-                        <a href='../Professor.html' class='ll_ref'>
-                            <i></i>
-                            <span>教授</span>
-                        </a>
-                    </li>
-                    <li class='ll'>
-                        <a href='../Associate_professor.html' class='ll_ref'>
-                            <i></i>
-                            <span>副教授</span>
-                        </a>
-                    </li>
-                    <li class='ll'>
-                        <a href='../Lecturer.html' class='ll_ref' style="background:#6ad;">
-                            <i></i>
-                            <span>讲师</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
+            <div class="middle_l" id="temlate_middle" th:include="template/professor :: professor"></div>
             <div class="middle_r">
                 <div class="crumb">
                     <ul id="crumbs">
@@ -157,17 +133,21 @@
 
 
 </body>
-    <!--二级菜单栏-->
-    <script>
-     $(function(){
-             $(".public-nav li:has(ul)").hover(function() {
-             $(this).find("a:first").css("background-color","#00428f");
-                 $(this).find(".subnav").css("display","block");
+<!--二级菜单栏-->
 
-         },function() {
-             $(this).find("a:first").css("background-color","#035ba6");
-             $(this).find(".subnav").css("display","none");
-         })
-     });
-    </script>
+<script>
+    window.onload=function(){
+    var oA=document.getElementsByClassName('ll_ref');
+    for(var i=0;i<oA.length;i++){
+    oA[i].onclick=function()
+    {
+    for(var i=0;i<oA.length;i++)
+    {
+    oA[i].style.background="";
+    }
+    this.style.background='#6ad';
+    }
+}
+}
+</script>
 </html>
